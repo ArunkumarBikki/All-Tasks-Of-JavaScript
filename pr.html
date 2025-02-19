@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Even and Odd Numbers</title>
+</head>
+<body>
+  <h2>Find Even and Odd Numbers</h2>
+  <button onclick="findEvenOdd()">Find Even and Odd Numbers</button>
+
+  <div id="result"></div>
+
+  <script>
+    // Array of numbers
+    const array = [23, 54, 67, 64, 46, 95, 98];
+
+    function findEvenOdd() {
+      let evenNumbers = [];
+      let oddNumbers = [];
+
+      // Using while loop to find even and odd numbers
+      let i = 0;
+      while (i < array.length) {
+        if (array[i] % 2 === 0) {
+          evenNumbers.push(array[i]); // Even number
+        } else {
+          oddNumbers.push(array[i]); // Odd number
+        }
+        i++;
+      }
+
+      // Using do-while loop to display results
+      let j = 0;
+      do {
+        // Display even and odd numbers
+        document.getElementById("result").innerHTML = `
+          <strong>Even numbers:</strong> ${evenNumbers.join(', ')}<br>
+          <strong>Odd numbers:</strong> ${oddNumbers.join(', ')}
+        `;
+        j++; // Run the loop only once
+      } while (j < 1);
+    }
+  </script>
+</body>
+</html>

@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Task 9</title>
+  <!-- <style>
+    .checker {
+      font-weight: bold;
+    }
+  </style> -->
+</head>
+<body>
+<!-- Password Strength Checker: -->
+<!-- Create an input field where a user types a password, and the script checks if the password is "Strong", "Medium", or "Weak" based on its length. -->
+
+  <h2>Password Strength Checker</h2>
+  
+  <label for="password">Enter Password</label>
+  <input type="password" id="password" name="password">
+  <button onclick="passwords()">Check</button>
+  <p id="message"></p>
+
+  <!-- password matcher -->
+
+  <h2 style="color: violet;">Input Match Checker</h2>
+
+  <label for="input1">Enter First Input</label>
+  <input type="text" id="input1" name="input1"><br><br>
+  <label for="input2">Enter Second Input</label>
+  <input type="text" id="input2" name="input2">
+  <button onclick="Inputs()">check</button>
+  <p id="resultMessage"></p>
+  
+  <script>
+    function passwords() {
+  var password = document.getElementById("password").value;
+  var message = document.getElementById("message");
+  if (password.length <= 4) {
+    message.textContent = "Weak";
+    message.style.color = "red";
+  } else if (password.length <= 7) {
+    message.textContent = "Medium";
+    message.style.color = "orange";
+  } else if (password.length >= 8) {
+    message.textContent = "Strong";
+    message.style.color = "green";
+  }
+}
+
+function Inputs() {
+  var input1 = document.getElementById("input1").value;
+  var input2 = document.getElementById("input2").value;
+  var resultMessage = document.getElementById("resultMessage");
+  if (input1 == input2) {
+    resultMessage.textContent = "Inputs are matched.";
+    resultMessage.style.color = "green";
+  }else {
+    resultMessage.textContent = "Inputs are not matched.";
+    resultMessage.style.color = "red";
+  }
+}
+  </script>
+</body>
+</html>

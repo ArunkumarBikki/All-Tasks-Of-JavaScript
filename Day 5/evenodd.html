@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Even and Odd Numbers</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f4f4f9;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+    }
+    .container {
+      background-color: white;
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      text-align: center;
+      width: 300px;
+    }
+    input, button {
+      padding: 10px;
+      margin: 10px 0;
+      width: 100%;
+      border-radius: 5px;
+      border: 1px solid #ddd;
+    }
+    #result {
+      margin-top: 20px;
+      font-size: 18px;
+      color: #333;
+    }
+    .output {
+      margin-top: 10px;
+      background-color: #f7f7f7;
+      padding: 10px;
+      border-radius: 5px;
+      font-size: 16px;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h2>Even and Odd Numbers</h2>
+    <label for="numbers">Enter numbers separated by commas:</label>
+    <input type="text" id="numbers" placeholder="e.g., 23,54,67,64,46,95,98">
+    <button onclick="processNumbers()">Find Even and Odd Numbers</button>
+
+    <div id="result"></div>
+  </div>
+
+  <script>
+    function processNumbers() {
+      let userInput = document.getElementById("numbers").value;
+      let array = userInput.split(',').map(Number); // Convert the input string into an array of numbers
+
+      let evenNumbers = [];
+      let oddNumbers = [];
+
+      // Using a while loop to find even and odd numbers
+      let i = 0;
+      while (i < array.length) {
+        if (array[i] % 2 === 0) {
+          evenNumbers.push(array[i]);
+        } else {
+          oddNumbers.push(array[i]);
+        }
+        i++;
+      }
+
+      // Display the results using a do-while loop (for demonstration, it runs only once)
+      let j = 0;
+      do {
+        document.getElementById("result").innerHTML = `
+          <div class="output">
+            <strong>Even numbers:</strong> ${evenNumbers.join(', ')}<br>
+            <strong>Odd numbers:</strong> ${oddNumbers.join(', ')}
+          </div>
+        `;
+        j++;
+      } while (j < 1);
+    }
+  </script>
+</body>
+</html>

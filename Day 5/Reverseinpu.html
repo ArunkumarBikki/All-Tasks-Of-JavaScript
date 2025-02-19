@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reverse a string</title>
+    <style>
+        body {
+    /* font-family: Arial, sans-serif; */
+    text-align: center;
+}
+input[type="text"] {
+    padding: 10px;
+    font-size: 18px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+button {
+    padding: 10px 20px;
+    font-size: 18px;
+    background-color: #4CAF50;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #3e8e41;
+}
+
+#reversed-string {
+    font-size: 24px;
+    font-weight: bold;
+    margin-top: 20px;
+}
+
+    </style>
+</head>
+<body>
+    <h1>Reverse a string</h1>
+    <input type="text" id="input-string" placeholder="Enter a string">
+    <button id="reverse-button">Reverse</button>
+    <p id="reversed-string"></p>
+    <script>
+        const inputString = document.getElementById('input-string');
+const reverseButton = document.getElementById('reverse-button');
+const reversedStringElement = document.getElementById('reversed-string');
+
+reverseButton.addEventListener('click', () => {
+    const input = inputString.value.trim();
+    if (input === '') {
+        // alert('Please enter a string');
+        return;
+    }
+
+    const reversedString = reverseString(input);
+    reversedStringElement.innerText = `Reversed string: ${reversedString}`;
+});
+
+function reverseString(str) {
+    let reversed = '';
+    for (let i = str.length - 1; i >= 0; i--) {
+        reversed += str[i];
+    }
+    return reversed;
+}
+
+    </script>
+
+</body>
+</html>

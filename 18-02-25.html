@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // double each number
+        let arr=[1,2,3,4,5,6];
+        let arr2=arr.map((val,ind,arr)=>{
+            return val*2
+        })
+        console.log(arr2);
+        // square each number
+        let arr3=arr.map((val,ind,arr)=>{
+            return val**2
+        })
+        console.log(arr3)
+        // even numbers
+        let arr4=arr.filter((val,index,arr)=>{
+            return val%2==0
+        })
+        console.log(arr4)
+        // creating array of 5 or more characters
+        let array=["arun","srinath","chintu","candy","hello","hii","rio"];
+        let arr5=array.filter((val,ind,arr)=>{
+            return val.length>=5
+        })
+        console.log(arr5)
+        // sum of all numbers
+        let arr6=arr.reduce((acc,Value)=>{
+            return acc+Value;
+        },0);
+        console.log(arr6);
+    </script>
+</body>
+</html>

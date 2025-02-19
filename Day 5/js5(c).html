@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Even vs Odd Sum</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f4f4f9;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+    }
+    .container {
+      background-color: white;
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      text-align: center;
+      width: 300px;
+    }
+    input, button {
+      padding: 10px;
+      margin: 10px 0;
+      width: 100%;
+      border-radius: 5px;
+      border: 1px solid #ddd;
+    }
+    #result {
+      margin-top: 20px;
+      font-size: 18px;
+      color: #333;
+    }
+    .output {
+      margin-top: 10px;
+      background-color: #f7f7f7;
+      padding: 10px;
+      border-radius: 5px;
+      font-size: 16px;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h2>Even sum and Odd sum</h2>
+    <label for="numbers">Enter numbers separated by commas:</label>
+    <input type="text" id="numbers" placeholder="e.g., 23,54,67,64,46,95,98">
+    <button onclick="compareSums()">Find Greater Sum</button>
+
+    <div id="result"></div>
+  </div>
+
+  <script>
+    function compareSums() {
+      let userInput = document.getElementById("numbers").value;
+      let array = userInput.split(',').map(Number); // Convert the input string into an array of numbers
+
+      let evenSum = 0;
+      let oddSum = 0;
+
+      // Using a while loop to calculate the sums of even and odd numbers
+      let i = 0;
+      while (i < array.length) {
+        if (array[i] % 2 === 0) {
+          evenSum += array[i];
+        } else {
+          oddSum += array[i];
+        }
+        i++;
+      }
+
+      // Using a do-while loop to display the result (it runs only once)
+      let j = 0;
+      do {
+        let resultMessage = '';
+        if (evenSum > oddSum) {
+          resultMessage = `Even sum (${evenSum}) is greater than odd sum (${oddSum}).`;
+        } else if (oddSum > evenSum) {
+          resultMessage = `Odd sum (${oddSum}) is greater than even sum (${evenSum}).`;
+        } else {
+          resultMessage = `Both sums are equal: Even sum = Odd sum = ${evenSum}.`;
+        }
+
+        // Displaying the result
+        document.getElementById("result").innerHTML = `
+          <div class="output">
+            <strong>${resultMessage}</strong>
+          </div>
+        `;
+        j++;
+      } while (j < 1); // This loop runs only once
+    }
+  </script>
+</body>
+</html>

@@ -1,0 +1,248 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Square Function</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f0f4f8;
+            margin: 0;
+        }
+
+        .container {
+            text-align: center;
+            background-color: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            width: 300px;
+        }
+
+        h1 {
+            font-size: 24px;
+            margin-bottom: 20px;
+        }
+
+        input {
+            padding: 10px;
+            width: 80%;
+            margin-bottom: 15px;
+            font-size: 16px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        button {
+            padding: 10px 20px;
+            background-color: #007bff;
+            color: white;
+            font-size: 16px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+
+        .result {
+            margin-top: 20px;
+            font-size: 18px;
+            font-weight: bold;
+        }
+
+        .error {
+            color: red;
+            font-size: 16px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Square Calculator</h1>
+        <input type="text" id="numInput" placeholder="Enter a number">
+        <button onclick="calculateSquare()">Calculate Square</button>
+        <div id="result" class="result"></div>
+        <div id="error" class="error"></div>
+    </div>
+
+    <script>
+        // Function to return the square of a number
+        function square(num) {
+            return num * num;
+        }
+
+        // Function to calculate square and show the result
+        function calculateSquare() {
+            let numInput = document.getElementById('numInput').value;
+            let resultElement = document.getElementById('result');
+            let errorElement = document.getElementById('error');
+
+            // Clear previous result or error
+            resultElement.innerHTML = '';
+            errorElement.innerHTML = '';
+
+            // Convert input to a number
+            let num = parseFloat(numInput);
+
+            // Validate if input is a valid number
+            if (isNaN(num)) {
+                errorElement.innerHTML = "Not a Number(NaN)!";
+            } else {
+                // Call the square function and display the result
+                let result = square(num);
+                resultElement.innerHTML = `The square of ${num} is ${result}.`;
+            }
+        }
+    </script>
+</body>
+</html> -->
+
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScript Functions</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f0f4f8;
+            margin: 0;
+        }
+
+        .container {
+            text-align: center;
+            background-color: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+            width: 400px;
+        }
+
+        h1 {
+            font-size: 24px;
+            margin-bottom: 20px;
+        }
+
+        .output {
+            font-size: 18px;
+            margin-top: 20px;
+            font-weight: bold;
+        }
+
+        .button {
+            padding: 10px 20px;
+            background-color: #007bff;
+            color: white;
+            font-size: 16px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-top: 10px;
+        }
+
+        .button:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h1>JavaScript Function Tasks</h1>
+
+        <button class="button" onclick="runTask1()">Task 1: Square Function</button>
+        <div id="task1-output" class="output"></div>
+
+        <button class="button" onclick="runTask2()">Task 2: Average Function</button>
+        <div id="task2-output" class="output"></div>
+
+        <button class="button" onclick="runTask3()">Task 3: Vowels Function</button>
+        <div id="task3-output" class="output"></div>
+
+        <button class="button" onclick="runTask4()">Task 4: Temperature Converter</button>
+        <div id="task4-output" class="output"></div>
+    </div>
+
+    <script>
+        // Task 1: Square Function
+        function square(num) {
+            return num * num;
+        }
+
+        function runTask1() {
+            let number = prompt("Enter a number to find its square:");
+            let result = square(Number(number));
+            document.getElementById('task1-output').innerText = `The square of ${number} is ${result}.`;
+        }
+
+        // Task 2: Average Function
+        function average(arr) {
+            let sum = arr.reduce((acc, num) => acc + num, 0);
+            return sum / arr.length;
+        }
+
+        function runTask2() {
+            let inputArray = prompt("Enter an array of numbers (comma-separated):").split(",").map(num => parseFloat(num.trim()));
+            let result = average(inputArray);
+            document.getElementById('task2-output').innerText = `The average of the array is: ${result}`;
+        }
+
+        // Task 3: Vowels Function
+        function containsVowels(str) {
+            const vowels = ['a', 'e', 'i', 'o', 'u'];
+            for (let i = 0; i < str.length; i++) {
+                if (vowels.includes(str[i].toLowerCase())) {
+                    return true;
+                }
+            }
+            return false;
+        }
+
+        function runTask3() {
+            let str = prompt("Enter a string to check if it contains vowels:");
+            let result = containsVowels(str) ? `The string "${str}" contains vowels.` : `The string "${str}" does not contain vowels.`;
+            document.getElementById('task3-output').innerText = result;
+        }
+
+        // Task 4: Temperature Converter
+        function convertTemperature(temp, scale) {
+            if (scale.toUpperCase() === 'C') {
+                return (temp - 32) * 5 / 9;
+            } else if (scale.toUpperCase() === 'F') {
+                return (temp * 9 / 5) + 32;
+            }
+            return null;
+        }
+
+        function runTask4() {
+            let temp = prompt("Enter the temperature:");
+            let scale = prompt("Enter the scale to convert to (C for Celsius or F for Fahrenheit):");
+            let convertedTemp = convertTemperature(Number(temp), scale);
+            if (convertedTemp === null) {
+                document.getElementById('task4-output').innerText = "Invalid scale entered. Please enter 'C' for Celsius or 'F' for Fahrenheit.";
+            } else {
+                document.getElementById('task4-output').innerText = `Converted temperature: ${convertedTemp.toFixed(2)}° ${scale.toUpperCase()}.`;
+            }
+        }
+    </script>
+
+</body>
+</html>
+
+

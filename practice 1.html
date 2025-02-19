@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    / Function to check if passwords match
+function checkPasswords() {
+  // Get the password and confirm password values
+  var password = prompt("Enter your password:");
+  var confirmPassword = prompt("Re-enter your password:");
+
+  // Check if passwords match
+  if (password === confirmPassword) {
+    console.log("Passwords are matched");
+  } else {
+    console.log("Passwords are not matched");
+  }
+}
+
+// Call the function
+checkPasswords();
+
+
+
+</body>
+</html>

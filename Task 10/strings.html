@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>String Manipulation</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        input, button {
+            margin: 5px;
+            padding: 10px;
+            font-size: 16px;
+        }
+        .result {
+            margin-top: 20px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <h1>String Manipulation Task</h1>
+    <input type="text" id="userInput" placeholder="Enter a string"><br>
+    <button onclick="convertToUpper()">Convert to Uppercase</button>
+    <button onclick="convertToLower()">Convert to Lowercase</button>
+    <button onclick="reverseString()">Reverse String</button>
+    <button onclick="countVowels()">Count Vowels</button>
+
+    <div class="result" id="result"></div>
+
+    <script>
+    // Task 1: take prompt and Convert to Uppercase
+        function convertToUpper() {
+            var input = document.getElementById('userInput').value;
+            document.getElementById('result').innerText = input.toUpperCase();
+        }
+        // take prompt and Convert to Lowercase
+        function convertToLower() {
+            var input = document.getElementById('userInput').value;
+            document.getElementById('result').innerText = input.toLowerCase();
+        }
+        // take prompt and Reverse a String
+        // hints: use split and reverse and join method
+        function reverseString() {
+            var input = document.getElementById('userInput').value;
+            var reversed = input.split('').reverse().join('');
+            document.getElementById('result').innerText = reversed;
+        }
+        // take prompt and Count the number of vowels in a string--
+        // hints use match method
+        function countVowels() {
+            var input = document.getElementById('userInput').value;
+            var vowels = input.match(/[aeiou]/ig);
+            var count = vowels ? vowels.length : 0;
+            document.getElementById('result').innerText = `Number of vowels: ${count}`;
+        }
+    </script>
+
+</body>
+</html>

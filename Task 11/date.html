@@ -1,0 +1,177 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Digital Clock and Age Counter</title>
+    <style>
+        body {
+    font-family: Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #f4f4f4;
+}
+
+.container {
+    text-align: center;
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.clock {
+    font-size: 2em;
+    margin: 20px 0;
+}
+
+.age {
+    margin-top: 20px;
+    font-size: 1.5em;
+}
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Digital Clock</h1>
+        <div id="clock" class="clock"></div><hr>
+        
+        <h1>Age Counter</h1>
+        <input type="date" id="birthdate" placeholder="Enter your birthdate">
+        <button onclick="calculateAge()">Calculate Age</button>
+        <div id="age" class="age"></div>
+    </div>
+
+    <script>
+        function updateClock() {
+    const now = new Date();
+    const hours = String(now.getHours()).padStart(2, '0');
+    const minutes = String(now.getMinutes()).padStart(2, '0');
+    const seconds = String(now.getSeconds()).padStart(2, '0');
+    document.getElementById('clock').innerText = `${hours}:${minutes}:${seconds}`;
+}
+
+setInterval(updateClock, 1000);
+updateClock(); // Call once to display immediately
+
+function calculateAge() {
+    const birthdateInput = document.getElementById('birthdate').value;
+    if (!birthdateInput) {
+        document.getElementById('age').innerText = 'Please enter a valid birthdate.';
+        return;
+    }
+
+    const birthdate = new Date(birthdateInput);
+    const today = new Date();
+    let age = today.getFullYear() - birthdate.getFullYear();
+    const monthDifference = today.getMonth() - birthdate.getMonth();
+
+    if (monthDifference < 0 || (monthDifference === 0 && today.getDate() < birthdate.getDate())) {
+        age--;
+    }
+
+    document.getElementById('age').innerText = `Your age is ${age} years.`;
+}
+    </script>
+</body>
+</html> -->
+
+
+
+
+
+
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Digital Clock and Age Counter</title>
+    <style>
+        body {
+    font-family: 'Arial', sans-serif;
+    background-color: #282c34;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+}
+
+.container {
+    text-align: center;
+}
+
+.clock, .age {
+    font-size: 2em;
+    margin: 20px 0;
+    padding: 20px;
+    border: 2px solid #61dafb;
+    border-radius: 10px;
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+button {
+    padding: 10px 20px;
+    font-size: 1em;
+    border: none;
+    border-radius: 5px;
+    background-color: #61dafb;
+    color: black;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #21a1f1;
+}
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Digital Clock</h1>
+        <div id="clock" class="clock"></div>
+        <h1>Age Counter</h1>
+        <div id="age" class="age"></div>
+        <button id="inputButton">Enter Your Birthdate</button>
+    </div>
+    <script>
+        
+function updateClock() {
+    const now = new Date();
+    const options = { hour: '2-digit', minute: '2-digit', second: '2-digit', hour12: false };
+    document.getElementById('clock').innerText = now.toLocaleTimeString('en-US', options);
+}
+
+function calculateAge(birthdate) {
+    const today = new Date();
+    const birthDate = new Date(birthdate);
+    let age = today.getFullYear() - birthDate.getFullYear();
+    const monthDifference = today.getMonth() - birthDate.getMonth();
+
+    if (monthDifference < 0 || (monthDifference === 0 && today.getDate() < birthDate.getDate())) {
+        age--;
+    }
+    return age;
+}
+
+document.getElementById('inputButton').addEventListener('click', function() {
+    const birthdate = prompt("Please enter your birthdate (YYYY-MM-DD):");
+    if (birthdate) {
+        const age = calculateAge(birthdate);
+        document.getElementById('age').innerText = `Your Age: ${age} years`;
+    }
+});
+
+setInterval(updateClock, 1000);
+updateClock();
+
+    </script>
+</body>
+</html>
